@@ -83,20 +83,7 @@ Továbbá saját middleware és signals is alkalmazásra kerültek, amelyek a m�
 
 ---
 
-## 🧼 Verziókezelés
 
-A `bagolykiado/` mappa (virtuális környezet) kizárt a verziókezelésből.
-
-Ajánlott `.gitignore` bejegyzések:
-
-```
-bagolykiado/
-venv/
-__pycache__/
-*.pyc
-db.sqlite3
-media/
-```
 
 ---
 
