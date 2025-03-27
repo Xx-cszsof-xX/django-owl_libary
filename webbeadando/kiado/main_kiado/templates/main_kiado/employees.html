@@ -1,0 +1,37 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+
+{% block content %}
+    <h1 class="mb-4">{% trans "Munkatársak" %}</h1>
+    <ul class="list-group">
+        {% for employee in employees %}
+            <li class="list-group-item mb-4 p-3 shadow-sm rounded bg-light d-flex align-items-start">
+                <!-- Kép a bal oldalon -->
+                <div class="me-3">
+                    {% if employee.image %}
+                        <img src="{{ employee.image.url }}" alt="{{ employee.name }}" class="employee-image" 
+                             style="width: 150px; height: 150px; object-fit: cover;">
+                    {% else %}
+                        <div class="no-image" style="width: 100px; height: 100px; background-color: #ddd; 
+                             display: flex; justify-content: center; align-items: center; border-radius: 5px;">
+                            {% trans "Nincs kép" %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- Szöveg a kép mellett -->
+                <div style="flex: 1;">
+                    <h5 class="mb-1">{{ employee.name }}</h5>
+                    <p class="mb-1 text-muted" style="text-align: justify;">
+                        <strong>{% trans "Pozíció:" %}</strong> {{ employee.position }}
+                    </p>
+                    <p class="mb-0" style="text-align: justify;">{{ employee.about }}</p>
+                </div>
+            </li>
+        {% empty %}
+            <li class="list-group-item text-center">
+                {% trans "Nincsenek elérhető munkatársak." %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

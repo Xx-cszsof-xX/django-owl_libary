@@ -1,0 +1,201 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Bagoly Kiadó{% endblock %}</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'main_kiado/styles.css' %}">
+    <link rel="icon" href="{% static 'main_kiado/favicon.ico' %}">
+    <style>
+        .card-img-top {
+            margin: 5px;
+            width: 95%;
+            max-height: 100%;
+            object-fit: fill;
+        }
+
+        .navbar-nav .nav-link.active {
+            font-weight: bold;
+            color: #007bff !important;
+            border-bottom: 2px solid #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Felső rész -->
+    <header>
+        <div class="header-top">
+            <div class="container-fluid d-flex justify-content-between align-items-center py-2">
+                <!-- Logo -->
+                <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                    <img src="{% static 'main_kiado/favicon.ico' %}" alt="Logo"
+                        style="width: 30px; height: 30px; margin-right: 10px;">
+                    <span class="fw-bold"> {% trans "Bagoly Kiadó" %}</span>
+                </a>
+
+                <!-- Keresés -->
+                <div class="search-container position-relative">
+                    <form method="GET" action="{% url 'search_combined' %}" class="d-flex align-items-center">
+                        <input type="text" id="search-input" name="q" class="form-control me-2"
+                            placeholder="{% trans 'Keresés...' %}" style="max-width: 300px;">
+                        <button class="btn btn-outline-success" type="submit">{% trans "Keresés" %}</button>
+                    </form>
+                </div>
+
+
+
+
+                <!-- Felhasználói opciók -->
+                <div class="d-flex align-items-center">
+                    {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="me-3" title="Profil">
+                        {% if user.profile.profile_picture %}
+                        <img src="{{ user.profile.profile_picture.url }}" alt="Profilkép"
+                            class="profile-picture rounded-circle"
+                            style="width: 30px; height: 30px; margin-right: 10px;">
+                        {% else %}
+                        <i class="bi bi-person-circle" style="font-size: 1.5rem;"></i>
+                        {% endif %}
+                    </a>
+                    <span class="me-3">{{ user.username }}</span>
+                    <form method="post" action="{% url 'logout' %}" style="display: inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-outline-secondary btn-sm">{% trans "Kijelentkezés"%}</button>
+                    </form>
+                    <a href="{% url 'cart' %}" class="cart-icon ms-3 position-relative">
+                        <i class="bi bi-cart"></i>
+                        {% if cart_item_count > 0 %}
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            {{ cart_item_count }}
+                        </span>
+                        {% endif %}
+                    </a>
+                    {% else %}
+                    <a href="{% url 'login' %}" class="btn btn-outline-primary btn-sm me-2">{% trans "Belépés" %}</a>
+                    <a href="{% url 'register' %}" class="btn btn-outline-success btn-sm">{% trans "Regisztráció" %}</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigációs sáv -->
+        <div class="header-bottom bg-white shadow-sm">
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a href="{% url 'books' %}"
+                                    class="nav-link {% if request.resolver_match.url_name == 'books' %}active{% endif %}">
+                                    {% trans "Könyvek" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'about' %}"
+                                    class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                                    {% trans "Rólunk" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'reviews' %}"
+                                    class="nav-link {% if request.resolver_match.url_name == 'reviews' %}active{% endif %}">
+                                    {% trans "Vélemények" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'employees' %}"
+                                    class="nav-link {% if request.resolver_match.url_name == 'employees' %}active{% endif %}">
+                                    {% trans "Munkatársak" %}
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'contact' %}"
+                                    class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                                    {% trans "Kapcsolat" %}
+                                </a>
+                            </li>
+
+
+                        </ul>
+                       <!-- nyelvváltó form jobbra -->
+    <div class="ms-auto d-flex align-items-center">
+        <form action="{% url 'set_language' %}" method="post" class="language-switcher mb-0">
+            {% csrf_token %}
+            <div class="dropdown">
+                {% get_current_language as LANGUAGE_CODE %}
+                <select class="form-select" name="language" onchange="this.form.submit()">
+                    <option value="hu" {% if LANGUAGE_CODE == "hu" %}selected{% endif %}>Magyar</option>
+                    <option value="en" {% if LANGUAGE_CODE == "en" %}selected{% endif %}>English</option>
+                </select>
+            </div>
+        </form>
+    </div>
+
+
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Üzenet modal -->
+    {% if messages %}
+    <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="messageModalLabel">{% trans "Üzenet" %}</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Tartalom -->
+    <main class="container mt-4">
+        {% block content %}
+        {% endblock %}
+        {% if request.path|length > 4 %}
+       <!-- <p>{{ request.path }}</p>  path kiiratása hogy a gombot a főoldal kivételéve mindenhova máshova fe lehessen tenni mert a nyelvi prefix miatt nem eleg a / -->
+        <a href="{% url 'home' %}" class="btn btn-primary mt-3">{% trans "Vissza a kezdőlapra" %}</a>
+    {% endif %}
+    </main>
+    
+        
+
+    <!-- Bootstrap Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Üzenet modal inicializálása -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var modal = document.getElementById("messageModal");
+            if (modal) {
+                var bootstrapModal = new bootstrap.Modal(modal);
+                bootstrapModal.show();
+            }
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
+</body>
+
+</html>

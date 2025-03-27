@@ -1,0 +1,84 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% trans "500 - Oldal nem található" %}</title>
+    <style>
+        canvas {
+            display: block;
+            margin: auto;
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">{% trans "404 - Oldal nem található" %}</h1>
+    <p style="text-align: center;">{% trans "De játszhatsz egy kis Snake-et!" %}</p>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const gridSize = 20;
+        let snake = [{ x: gridSize * 5, y: gridSize * 5 }];
+        let direction = 'right';
+        let food = { x: gridSize * 10, y: gridSize * 10 };
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Draw the food
+            ctx.fillStyle = 'red';
+            ctx.fillRect(food.x, food.y, gridSize, gridSize);
+
+            // Draw the snake
+            ctx.fillStyle = 'green';
+            snake.forEach(segment => ctx.fillRect(segment.x, segment.y, gridSize, gridSize));
+
+            moveSnake();
+            setTimeout(draw, 100);
+        }
+
+        function moveSnake() {
+            const head = { ...snake[0] };
+
+            switch (direction) {
+                case 'right': head.x += gridSize; break;
+                case 'left': head.x -= gridSize; break;
+                case 'up': head.y -= gridSize; break;
+                case 'down': head.y += gridSize; break;
+            }
+
+            snake.unshift(head);
+            if (head.x === food.x && head.y === food.y) {
+                food = { x: Math.floor(Math.random() * (canvas.width / gridSize)) * gridSize,
+                         y: Math.floor(Math.random() * (canvas.height / gridSize)) * gridSize };
+            } else {
+                snake.pop();
+            }
+
+            if (head.x < 0 || head.y < 0 || head.x >= canvas.width || head.y >= canvas.height || snake.slice(1).some(segment => segment.x === head.x && segment.y === head.y)) {
+                resetGame();
+            }
+        }
+
+        function resetGame() {
+            snake = [{ x: gridSize * 5, y: gridSize * 5 }];
+            direction = 'right';
+        }
+
+        document.addEventListener('keydown', e => {
+            switch (e.key) {
+                case 'ArrowUp': if (direction !== 'down') direction = 'up'; break;
+                case 'ArrowDown': if (direction !== 'up') direction = 'down'; break;
+                case 'ArrowLeft': if (direction !== 'right') direction = 'left'; break;
+                case 'ArrowRight': if (direction !== 'left') direction = 'right'; break;
+            }
+        });
+
+        draw();
+    </script>
+</body>
+</html>

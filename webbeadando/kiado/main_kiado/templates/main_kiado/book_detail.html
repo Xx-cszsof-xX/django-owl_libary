@@ -1,0 +1,38 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+
+{% block title %}{{ book.title }}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Könyv képe -->
+        <div class="col-md-4">
+            <img src="{{ book.cover_image.url }}" class="img-fluid" alt="{{ book.title }}">
+        </div>
+        <!-- Könyv részletei -->
+        <div class="col-md-8">
+            <h1>{{ book.title }}</h1>
+            <h4>{% trans "Írta:" %} {{ book.author }}</h4>
+            <p>
+                <strong>{% trans "Megjelenés dátuma:" %}</strong> {{ book.published_date }}
+            </p>
+            <p>{{ book.description }}</p>
+            <h3>{{ book.price }} Ft</h3>
+            
+            <!-- Darabszám választás és Kosárba gomb -->
+            <form method="POST" action="{% url 'add_to_cart' book.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="quantity">{% trans "Darabszám:" %}</label>
+                    <input type="number" name="quantity" id="quantity" class="form-control" value="1" min="1" 
+                           style="padding-top: 1rem; padding-bottom: 1rem;">
+                </div>
+                <button type="submit" class="btn btn-success" style="margin-top: 1.5rem;">
+                    {% trans "Kosárba helyezés" %}
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

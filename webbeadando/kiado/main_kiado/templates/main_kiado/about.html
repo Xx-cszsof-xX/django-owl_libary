@@ -1,0 +1,22 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Rólunk" %}{% endblock %}
+
+{% block content %}
+<div class="container my-5">
+    <h1 class="mb-4">{% trans "A Bagoly Kiadó" %}</h1>
+    <p class="lead">
+        {% trans "Ismerje meg a Bagoly Kiadót és küldetésünket..." %}
+    </p>
+    <p>
+        {% trans "Ismerje meg a Bagoly Kiadót és küldetésünket, amelynek célja, hogy az ázsiai kultúrát és irodalmat közelebb hozza az európai olvasókhoz. Hiszünk abban, hogy a különböző kultúrák megismerése elengedhetetlen a gazdagabb társadalom kialakításához." %}
+    </p>
+    <p>
+        {% trans "A kultúra terjesztése nemcsak a különbségek bemutatását, hanem a hasonlóságok felfedezését is jelenti. Ezzel a közelítéssel igyekszünk hozzájárulni ahhoz, hogy az olvasók gazdagabb tapasztalatokkal rendelkezzenek." %}
+    </p>
+    <p>
+        {% trans "A Bagoly Kiadó csapata rendkívül fontosnak tartja, hogy ezeket a történeteket és értékeket eljuttassa az olvasókhoz." %}
+    </p>
+</div>
+{% endblock %}

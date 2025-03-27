@@ -1,0 +1,24 @@
+{% extends 'admin/base_site.html' %}
+{% load i18n %}
+
+{% block content %}
+<h1>{% trans "Admin vásárlások listázása" %}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>{% trans "Felhasználó" %}</th>
+            <th>{% trans "Könyv" %}</th>
+            <th>{% trans "Mennyiség" %}</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for cart_item in cart_items %}
+        <tr>
+            <td>{{ cart_item.user.username }}</td>
+            <td>{{ cart_item.book.title }}</td>
+            <td>{{ cart_item.quantity }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

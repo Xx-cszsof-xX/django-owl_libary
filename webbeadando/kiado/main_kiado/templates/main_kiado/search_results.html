@@ -1,0 +1,86 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Keresési találatok" %}{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">{% trans "Keresési találatok" %}</h1>
+<div id="search-results"></div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const resultsContainer = document.getElementById('search-results');
+        const urlParams = new URLSearchParams(window.location.search);
+        const query = urlParams.get("q");
+
+        if (query) {
+            fetch(`/ajax/search/?q=${query}`, {
+                headers: { "X-Requested-With": "XMLHttpRequest" }
+            })
+            .then(response => response.json())
+            .then(data => {
+                let resultsHTML = ''; // Keresési eredmények HTML-je
+
+                // Könyvek megjelenítése
+                if (data.books.length > 0) {
+                    resultsHTML += '<h4>{% trans "Könyvek" %}</h4><div class="row">';
+                    data.books.forEach(book => {
+                        const imageUrl = book.cover_image ? book.cover_image : '/static/images/default-book.png';
+                        resultsHTML += `
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="${imageUrl}" class="card-img-top" alt="${book.title}"
+                                         onerror="this.src='/static/images/default-book.png';">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${book.title}</h5>
+                                        <p class="card-text">{% trans "Írta:" %} ${book.author}</p>
+                                    </div>
+                                    <div class="card-footer text-center">
+                                        <a href="/book/${book.id}/" class="btn btn-primary">{% trans "Részletek" %}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultsHTML += '</div>';
+                }
+
+                // Munkatársak megjelenítése
+                if (data.employees.length > 0) {
+                    resultsHTML += '<h4>{% trans "Munkatársak" %}</h4><div class="row">';
+                    data.employees.forEach(employee => {
+                        const imageUrl = employee.image ? employee.image : '/static/images/default-employee.png';
+                        resultsHTML += `
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow-sm">
+                                    <img src="${imageUrl}" class="card-img-top" alt="${employee.name}"
+                                         onerror="this.src='/static/images/default-employee.png';">
+                                    <div class="card-body">
+                                        <h5 class="card-title">${employee.name}</h5>
+                                        <p class="card-text">{% trans "Pozíció:" %} ${employee.position}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultsHTML += '</div>';
+                }
+
+                // Ha nincs találat
+                if (!data.books.length && !data.employees.length) {
+                    resultsHTML = "<p class='text-muted'>{% trans 'Nincs találat.' %}</p>";
+                }
+
+                // A generált HTML beillesztése
+                resultsContainer.innerHTML = resultsHTML;
+            })
+            .catch(error => {
+                console.error("Hiba:", error);
+                resultsContainer.innerHTML = "<p class='text-danger'>{% trans 'Hiba történt a keresés során.' %}</p>";
+            });
+        }
+    });
+</script>
+{% endblock %}

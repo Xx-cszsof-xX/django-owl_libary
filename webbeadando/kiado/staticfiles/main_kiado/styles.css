@@ -1,0 +1,395 @@
+/* Általános stílusok */
+table {
+    width: 100%; /* A táblázat kitöltse az egész elérhető szélességet */
+    margin-top: 20px;
+    border-collapse: collapse; /* Az élek összevonása */
+}
+
+th, td {
+    text-align: left; /* Balra igazított szöveg */
+    padding: 10px; /* Belső margó a cellákban */
+    border: 1px solid #ddd; /* Finom elválasztó vonalak */
+}
+
+th {
+    background-color: #f8f9fa; /* Világos háttérszín a fejléchez */
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Minden páros sor háttérszínének megváltoztatása */
+}
+
+/* Kép méretének egységesítése könyvekhez */
+.book-image {
+    width: 170px; /* A cella fix szélessége */
+    height: 220px; /* A cella fix magassága */
+}
+
+.book-image img {
+    width: 100%; /* A kép teljesen kitölti a cellát */
+    height: 100%; /* A kép teljesen kitölti a cellát */
+    object-fit: cover; /* A kép ne torzuljon */
+    display: block; /* Blokk szintű elemként viselkedjen */
+    margin: 0 auto; /* Középre igazítás */
+}
+
+/* Formák és bemeneti mezők */
+input, textarea, select {
+    display: block;
+    width: 100%; /* Szélesség beállítása */
+}
+
+/* Csillag értékelés */
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    font-size: 0;
+}
+
+.rating > input {
+    display: none; /* Rádiógombok elrejtése */
+}
+
+.rating > label {
+    display: inline-block;
+    width: 1.1em;
+    font-size: 24px;
+    color: rgb(128, 128, 128); /* Alapértelmezett csillagszín */
+    cursor: pointer;
+}
+
+.rating > label:before {
+    content: "\2605";
+}
+
+.rating > input:checked ~ label,
+.rating > label:hover,
+.rating > label:hover ~ label {
+    color: rgb(218, 179, 27); /* Kiválasztott és hover csillagszín */
+}
+
+/* Vélemények */
+.reviews-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    margin-top: 20px; /* A "Korábbi vélemények" lejjebb helyezése */
+}
+
+.review-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+}
+
+.review-header {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.review-body {
+    margin-bottom: 20px; /* Több hely hozzáadása a vélemények alatt */
+}
+
+.review-body p {
+    margin: 5px 0;
+}
+
+.star-rating {
+    display: inline-block;
+}
+
+.star {
+    color: #f5c518; /* Aranyszín a teli csillaghoz */
+    font-size: 1.5rem;
+}
+
+.star.empty {
+    color: #afafaf; /* Szürke az üres csillaghoz */
+}
+
+/* Formák */
+.form-section {
+    margin-bottom: 40px; /* További hely az űrlap alá */
+}
+
+/* Dolgozói lista */
+.list-group-item {
+    display: flex;
+    align-items: center; /* Függőlegesen középre igazítja a képet és a szöveget */
+    justify-content: flex-start; /* Balra igazítja a tartalmat */
+}
+
+.employee-image {
+    width: 200px; /* Kép szélessége */
+    height: auto;
+    margin-right: 40px; /* Távolság a kép és a szöveg között */
+    border-radius: 50%; /* Lekerekített sarkok */
+    align-self: flex-start; /* Képet a szöveg tetejéhez igazítja */
+}
+
+/* Alkalmazott kép és alapértelmezett kép stílusai */
+.employee-image, .no-image {
+    width: 150px; /* A kép szélességének növelése */
+    height: 150px; /* A kép magassága */
+    margin-right: 40px; /* Távolság a kép és a szöveg között */
+    border-radius: 50%; /* Lekerekített sarkok */
+    object-fit: cover; /* A kép ne torzuljon */
+}
+
+.no-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    color: #6c757d;
+}
+
+/* Carousel stílusok */
+.carousel-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item {
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%; /* Gomb szélessége */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5); /* Félátlátszó fekete háttér */
+    border-radius: 50%; /* Kör alakú gomb */
+    width: 40px;
+    height: 40px;
+}
+
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+    content: ''; /* Vissza gomb ikonja */
+    font-size: 30px;
+    color: white; /* Ikon színe */
+}
+
+.carousel-control-next-icon::after {
+    content: ''; /* Előre gomb ikonja */
+}
+
+.carousel-caption {
+    background-color: rgba(0, 0, 0, 0.7); /* Félátlátszó fekete háttér */
+    color: white; /* Fehér szöveg */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Speciális carousel stílusok az alkalmazottaknak */
+#employeeCarousel .carousel-inner {
+    background-color: #ffffff; /* Fehér háttér */
+    border-radius: 10px; /* Lekerekített sarkok */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Finom árnyék */
+}
+
+#employeeCarousel .carousel-item {
+    padding: 20px; /* Szélek körüli belső margó */
+}
+
+#employeeCarousel img {
+    border-radius: 50%; /* Kör alakú képek */
+    max-width: 150px; /* Maximum szélesség */
+    height: auto; /* Automatikus magasság */
+    margin-bottom: 15px; /* Távolság a szövegtől */
+}
+
+#employeeCarousel h5 {
+    font-size: 1.5rem; /* Nagyobb betűméret */
+    margin-bottom: 10px; /* Távolság a szövegtől */
+}
+
+#employeeCarousel .text-muted {
+    font-size: 0.9rem; /* Kisebb betűméret a szürkített szöveghez */
+}
+
+#employeeCarousel p {
+    margin-bottom: 0; /* Távolság nélküli bekezdés */
+}
+
+/* Navigációs gombok stílusai az alkalmazotti carouselhez */
+#employeeCarousel .carousel-control-prev-icon,
+#employeeCarousel .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.3); /* Félátlátszó háttér a gombokon */
+    border-radius: 50%; /* Kör alakú gomb */
+    padding: 10px; /* Extra belső margó */
+}
+#search-results {
+    margin-top: 20px;
+}
+
+#search-results ul {
+    list-style: none;
+    padding: 0;
+}
+
+#search-results li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+#search-results img {
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+/* Általános form mezők stílusozása */
+form input[type="text"],
+form input[type="email"],
+form input[type="date"],
+form input[type="password"], /* Jelszó mező */
+form input[type="number"], /* Szám mező */
+form textarea,
+form input[type="file"] {
+    border: 1px solid rgba(200, 200, 200, 0.5) !important; /* Világosszürke keret */
+    border-radius: 10px !important; /* Lekerekített sarkok */
+    padding: 10px !important; /* Belső térköz */
+    background: rgba(245, 245, 245, 0.8) !important; /* Halvány világosszürke háttér */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Finom árnyék */
+    outline: none !important; /* Kijelöléskor ne legyen szegély */
+    width: 100% !important; /* Teljes szélesség */
+    font-size: 1rem !important; /* Szöveg mérete */
+    color: #333 !important; /* Szöveg színe */
+    transition: all 0.3s ease-in-out !important; /* Simább animáció */
+}
+
+/* Csak a textarea-ra specifikusan */
+textarea.form-control {
+    resize: vertical !important; /* Csak függőlegesen méretezhető */
+    border: 1px solid rgba(200, 200, 200, 0.5) !important;
+    background: rgba(245, 245, 245, 0.8) !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    border-radius: 10px !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* Kijelöléskor érvényes stílus */
+form input:focus,
+form textarea:focus {
+    background: rgba(255, 255, 255, 0.9) !important; /* Világosabb háttér fókuszban */
+    border-color: #6c757d !important; /* Sötétebb keret fókuszban */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2) !important; /* Erősebb árnyék */
+}
+
+/* Fájl feltöltő mező egyedi stílus */
+form input[type="file"] {
+    background: rgba(240, 240, 240, 0.8) !important;
+    border: 1px solid rgba(200, 200, 200, 0.7) !important;
+    padding: 8px !important;
+    font-size: 0.9rem !important;
+    cursor: pointer !important;
+}
+
+/* Gombok stílusozása */
+form button {
+    background: rgba(200, 200, 200, 0.8) !important; /* Halvány szürke háttér */
+    border: none !important; /* Nincs keret */
+    border-radius: 10px !important; /* Lekerekített sarkok */
+    padding: 10px 20px !important; /* Belső térköz */
+    color: #333 !important; /* Szöveg színe */
+    font-size: 1rem !important; /* Szöveg mérete */
+    cursor: pointer !important; /* Egérmutató */
+    transition: background 0.3s ease-in-out !important; /* Simább animáció */
+}
+
+form button:hover {
+    background: rgba(180, 180, 180, 0.9) !important; /* Sötétebb háttér hover-re */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important; /* Árnyék hover-re */
+}
+/* Profil oldal szépítése */
+.d-flex {
+    display: flex;
+}
+
+.me-4 {
+    margin-right: 1.5rem; /* Térköz a kép és az űrlap között */
+}
+
+/* Kör alakú kép */
+.profile-picture {
+    width: 150px; /* Kép mérete */
+    height: 150px;
+    border-radius: 50%; /* Kör alakú */
+    object-fit: cover; /* A kép kitöltése */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Árnyék */
+    margin: 10px auto; /* Középre igazítás */
+    display: block;
+}
+
+.profile-picture-edit {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border: 2px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+#profile-view {
+    background: #f8f9fa; /* Világos háttér */
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+}
+
+#profile-view h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+#profile-view p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+#profile-view button {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+#profile-edit-form {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Könyvsor hover effekt */
+.rowe:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Kép lekerekítése */
+img.img-fluid {
+    border-radius: 10px;
+}

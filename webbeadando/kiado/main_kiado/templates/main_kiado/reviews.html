@@ -1,0 +1,66 @@
+{% extends 'main_kiado/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+<h2>{% trans "Vélemények" %}</h2>
+
+<form method="post" action="{% url 'reviews' %}">
+    {% csrf_token %}
+    <!-- A form mezők megjelenítése -->
+    <p>{{ form.name.label_tag }} {{ form.name }}</p>
+    <p>{{ form.email.label_tag }} {{ form.email }}</p>
+    <p>{{ form.review.label_tag }}</p>
+    <textarea name="review" id="review"
+        placeholder="{% trans 'Írd ide a véleményed...' %}">{{ form.review.value|default_if_none:'' }}</textarea>
+
+    <!-- Csillagos értékelés -->
+    <fieldset class="stars" id="rating">
+        <p class="rating-title">{% trans "Értékelj minket!" %}</p>
+        <div class="rating">
+            <input type="radio" id="star5" name="rating" value="5" />
+            <label for="star5" data-value="5"></label>
+            <input type="radio" id="star4" name="rating" value="4" />
+            <label for="star4" data-value="4"></label>
+            <input type="radio" id="star3" name="rating" value="3" />
+            <label for="star3" data-value="3"></label>
+            <input type="radio" id="star2" name="rating" value="2" />
+            <label for="star2" data-value="2"></label>
+            <input type="radio" id="star1" name="rating" value="1" />
+            <label for="star1" data-value="1"></label>
+        </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary">{% trans "Beküldés" %}</button>
+</form>
+
+<h3>{% trans "Korábbi vélemények:" %}</h3>
+<div class="reviews-container">
+    {% for review in reviews %}
+    <div class="review-card">
+        <div class="review-header">
+            <strong>{{ review.name }}</strong> - {{ review.date|date:"Y-m-d H:i" }}
+        </div>
+        <div class="review-body">
+            <p><strong>{% trans "Értékelés:" %}</strong>
+                <span class="star-rating-inline">
+                    {% for i in "12345"|make_list %}
+                    {% if forloop.counter <= review.rating|default:0 %} <span class="star">&#9733;</span>
+                {% else %}
+                <span class="star empty">&#9734;</span>
+                {% endif %}
+                {% endfor %}
+                </span>
+            </p>
+            <p>{{ review.review }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p>{% trans "Még nincs vélemény." %}</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'main_kiado/js/rating.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends 'main_kiado/base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% trans "Profil" %}{% endblock title %}
+
+{% block content %}
+    <!-- Profil megjelenítése -->
+    <div id="profile-view" class="text-center">
+        <h1>{{ user.username }} {% trans "Profilja" %}</h1>
+        {% if user.profile.profile_picture %}
+            <img class="profile-picture rounded-circle mb-3" src="{{ user.profile.profile_picture.url }}" alt="{% trans 'Profilkép' %}">
+        {% else %}
+            <img class="profile-picture rounded-circle mb-3" src="{% static 'default-profile.png' %}" alt="{% trans 'Alapértelmezett profilkép' %}">
+        {% endif %}
+        <p><strong>{% trans "Bio:" %}</strong> {{ user.profile.bio }}</p>
+        <p><strong>{% trans "Születési dátum:" %}</strong> {{ user.profile.birth_date|date:"Y. F j." }}</p>
+        <button id="edit-btn" class="btn btn-primary mt-3">{% trans "Szerkesztés" %}</button>
+    </div>
+
+    <!-- Szerkesztő űrlap -->
+    <div id="profile-edit-form" style="display: none;" class="container mt-4 position-relative bg-light p-4 rounded shadow">
+        <h2 class="text-center mb-4">{% trans "Profil szerkesztése" %}</h2>
+
+        <div class="d-flex align-items-start">
+            <!-- Profilkép a bal oldalon -->
+            <div class="me-4">
+                {% if user.profile.profile_picture %}
+                    <img src="{{ user.profile.profile_picture.url }}" alt="{% trans 'Profilkép' %}" class="rounded-circle profile-picture-edit" style="height: 150px; width: 150px;">
+                {% else %}
+                    <img src="{% static 'default-profile.png' %}" alt="{% trans 'Alapértelmezett profilkép' %}" class="rounded-circle profile-picture-edit">
+                {% endif %}
+            </div>
+
+            <!-- Űrlap a jobb oldalon -->
+            <form method="post" enctype="multipart/form-data" class="flex-grow-1">
+                {% csrf_token %}
+                <!-- Profilkép mező -->
+                <div class="mb-3">
+                    <label for="{{ form.profile_picture.id_for_label }}" class="form-label" style="padding-top: 1.2rem;">{% trans "Profilkép" %}</label>
+                    {{ form.profile_picture }}
+                </div>
+
+                <!-- Bio mező -->
+                <div class="mb-3">
+                    <label for="{{ form.bio.id_for_label }}" class="form-label">{% trans "Bio" %}</label>
+                    {{ form.bio }}
+                </div>
+
+                <!-- Születési dátum mező -->
+                <div class="mb-3">
+                    <label for="{{ form.birth_date.id_for_label }}" class="form-label">{% trans "Születési dátum" %}</label>
+                    {{ form.birth_date }}
+                </div>
+
+                <!-- Gombok -->
+                <div class="d-flex justify-content-start gap-2">
+                    <button type="submit" class="btn btn-success">{% trans "Mentés" %}</button>
+                    <button type="button" id="cancel-btn" class="btn btn-secondary">{% trans "Mégse" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById('edit-btn').addEventListener('click', function () {
+            document.getElementById('profile-view').style.display = 'none';
+            document.getElementById('profile-edit-form').style.display = 'block';
+        });
+
+        document.getElementById('cancel-btn').addEventListener('click', function () {
+            document.getElementById('profile-view').style.display = 'block';
+            document.getElementById('profile-edit-form').style.display = 'none';
+        });
+    </script>
+{% endblock content %}

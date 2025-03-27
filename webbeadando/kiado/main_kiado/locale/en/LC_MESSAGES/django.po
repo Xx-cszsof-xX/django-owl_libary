@@ -1,0 +1,724 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-12-18 02:46+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\main_kiado\admin.py:11 .\main_kiado\models.py:15
+msgid "Employee"
+msgstr "Employee"
+
+#: .\main_kiado\admin.py:12 .\main_kiado\models.py:16
+msgid "Employees"
+msgstr "Employees"
+
+#: .\main_kiado\forms.py:13
+msgid "Add meg a neved..."
+msgstr "Enter your name..."
+
+#: .\main_kiado\forms.py:14
+msgid "Add meg az email címed..."
+msgstr "Enter your email..."
+
+#: .\main_kiado\forms.py:15 .\main_kiado\templates\main_kiado\reviews.html:14
+msgid "Írd ide a véleményed..."
+msgstr "Write your review here..."
+
+#: .\main_kiado\forms.py:18
+msgid "Név"
+msgstr "Name"
+
+#: .\main_kiado\forms.py:19 .\main_kiado\forms.py:46 .\main_kiado\forms.py:47
+#: .\main_kiado\forms.py:69 .\main_kiado\models.py:39
+msgid "Email"
+msgstr "Email"
+
+#: .\main_kiado\forms.py:20
+msgid "Vélemény"
+msgstr "Review"
+
+#: .\main_kiado\forms.py:21
+msgid "Értékelés"
+msgstr "Rating"
+
+#: .\main_kiado\forms.py:29
+msgid "First Name"
+msgstr "First Name"
+
+#: .\main_kiado\forms.py:30 .\main_kiado\forms.py:66
+msgid "Keresztnév"
+msgstr "First Name"
+
+#: .\main_kiado\forms.py:35
+msgid "Last Name"
+msgstr "Last Name"
+
+#: .\main_kiado\forms.py:36 .\main_kiado\forms.py:67
+msgid "Vezetéknév"
+msgstr "Last Name"
+
+#: .\main_kiado\forms.py:41
+msgid "Username"
+msgstr "Username"
+
+#: .\main_kiado\forms.py:42 .\main_kiado\forms.py:68
+msgid "Felhasználónév"
+msgstr "Username"
+
+#: .\main_kiado\forms.py:52
+msgid "Password"
+msgstr "Password"
+
+#: .\main_kiado\forms.py:53 .\main_kiado\forms.py:70
+msgid "Jelszó"
+msgstr "Password"
+
+#: .\main_kiado\forms.py:58
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+#: .\main_kiado\forms.py:59 .\main_kiado\forms.py:71
+msgid "Jelszó megerősítése"
+msgstr "Confirm Password"
+
+#: .\main_kiado\forms.py:83
+msgid "Válassz profilképet"
+msgstr "Choose a profile picture"
+
+#: .\main_kiado\forms.py:88
+msgid "Írd be az életrajzodat..."
+msgstr "Enter your bio..."
+
+#: .\main_kiado\forms.py:96 .\main_kiado\templates\main_kiado\profile.html:12
+#: .\main_kiado\templates\main_kiado\profile.html:29
+#: .\main_kiado\templates\main_kiado\profile.html:40
+msgid "Profilkép"
+msgstr "Profile Picture"
+
+#: .\main_kiado\forms.py:97
+msgid "Életrajz"
+msgstr "Biography"
+
+#: .\main_kiado\forms.py:98 .\main_kiado\templates\main_kiado\profile.html:52
+msgid "Születési dátum"
+msgstr "Birth date"
+
+#: .\main_kiado\forms.py:101
+msgid "Kép feltöltése: JPEG vagy PNG formátum ajánlott."
+msgstr "Upload image: JPEG or PNG format recommended."
+
+#: .\main_kiado\forms.py:102
+msgid "Az életrajz rövid szöveges leírás legyen."
+msgstr "The bio should be a short textual description."
+
+#: .\main_kiado\forms.py:103
+msgid "A születési dátum formátuma: ÉÉÉÉ-HH-NN (pl. 1990-01-15)."
+msgstr "The birth date format: YYYY-MM-DD (e.g., 1990-01-15)."
+
+#: .\main_kiado\forms.py:109
+msgid "Írd le magadról röviden..."
+msgstr "Write a short bio about yourself..."
+
+#: .\main_kiado\forms.py:113
+msgid "Pl. 1990-01-15"
+msgstr "E.g., 1990-01-15"
+
+#: .\main_kiado\forms.py:120
+msgid "Az évnek 4 számjegyűnek kell lennie."
+msgstr "The year must be 4 digits."
+
+#: .\main_kiado\models.py:9 .\main_kiado\models.py:40
+msgid "Name"
+msgstr "Name"
+
+#: .\main_kiado\models.py:10
+msgid "Position"
+msgstr "Position"
+
+#: .\main_kiado\models.py:11
+msgid "About"
+msgstr "About"
+
+#: .\main_kiado\models.py:12
+msgid "Image"
+msgstr "Image"
+
+#: .\main_kiado\models.py:23
+msgid "Title"
+msgstr "Title"
+
+#: .\main_kiado\models.py:24
+msgid "Author"
+msgstr "Author"
+
+#: .\main_kiado\models.py:25
+msgid "Published Date"
+msgstr "Published Date"
+
+#: .\main_kiado\models.py:26
+msgid "Cover Image"
+msgstr "Cover Image"
+
+#: .\main_kiado\models.py:27
+msgid "Price"
+msgstr "Price"
+
+#: .\main_kiado\models.py:28
+msgid "Description"
+msgstr "Description"
+
+#: .\main_kiado\models.py:31 .\main_kiado\models.py:73
+#: .\main_kiado\models.py:86
+msgid "Book"
+msgstr "Book"
+
+#: .\main_kiado\models.py:32
+msgid "Books"
+msgstr "Books"
+
+#: .\main_kiado\models.py:41 .\main_kiado\models.py:49
+msgid "Review"
+msgstr "Review"
+
+#: .\main_kiado\models.py:44
+msgid "Rating"
+msgstr "Rating"
+
+#: .\main_kiado\models.py:46
+msgid "Date"
+msgstr "Date"
+
+#: .\main_kiado\models.py:50
+msgid "Reviews"
+msgstr "Reviews"
+
+#: .\main_kiado\models.py:57 .\main_kiado\models.py:85
+#: .\main_kiado\models.py:95
+msgid "User"
+msgstr "User"
+
+#: .\main_kiado\models.py:58
+msgid "Created At"
+msgstr "Created At"
+
+#: .\main_kiado\models.py:61 .\main_kiado\models.py:72
+msgid "Cart"
+msgstr "Cart"
+
+#: .\main_kiado\models.py:62
+msgid "Carts"
+msgstr "Carts"
+
+#: .\main_kiado\models.py:68
+#, python-format
+msgid "%(username)s's Cart"
+msgstr "%(username)s's Cart"
+
+#: .\main_kiado\models.py:74
+msgid "Quantity"
+msgstr "Quantity"
+
+#: .\main_kiado\models.py:77
+msgid "Cart Item"
+msgstr "Cart Item"
+
+#: .\main_kiado\models.py:78
+msgid "Cart Items"
+msgstr "Cart Items"
+
+#: .\main_kiado\models.py:87
+msgid "Purchased At"
+msgstr "Purchased At"
+
+#: .\main_kiado\models.py:90
+msgid "Purchase"
+msgstr "Purchase"
+
+#: .\main_kiado\models.py:91
+msgid "Purchases"
+msgstr "Purchases"
+
+#: .\main_kiado\models.py:96 .\main_kiado\templates\main_kiado\profile.html:46
+msgid "Bio"
+msgstr "Bio"
+
+#: .\main_kiado\models.py:97
+msgid "Profile Picture"
+msgstr "Profile Picture"
+
+#: .\main_kiado\models.py:98
+msgid "Birth Date"
+msgstr "Birth Date"
+
+#: .\main_kiado\models.py:101
+msgid "Profile"
+msgstr "Profile"
+
+#: .\main_kiado\models.py:102
+msgid "Profiles"
+msgstr "Profiles"
+
+#: .\main_kiado\models.py:105
+#, python-format
+msgid "%(username)s's Profile"
+msgstr "%(username)s's Profile"
+
+#: .\main_kiado\templates\400.html:7 .\main_kiado\templates\400.html:18
+#: .\main_kiado\templates\403.html:18 .\main_kiado\templates\404.html:7
+#: .\main_kiado\templates\404.html:18 .\main_kiado\templates\500.html:18
+msgid "404 - Oldal nem található"
+msgstr "404 - Page Not Found"
+
+#: .\main_kiado\templates\400.html:19 .\main_kiado\templates\403.html:19
+#: .\main_kiado\templates\404.html:19 .\main_kiado\templates\500.html:19
+msgid "De játszhatsz egy kis Snake-et!"
+msgstr "But you can play a little Snake!"
+
+#: .\main_kiado\templates\403.html:7
+msgid "403 - Oldal nem található"
+msgstr "403 - Page Not Found"
+
+#: .\main_kiado\templates\500.html:7
+msgid "500 - Oldal nem található"
+msgstr "500 - Page Not Found"
+
+#: .\main_kiado\templates\main_kiado\about.html:4
+#: .\main_kiado\templates\main_kiado\base.html:97
+msgid "Rólunk"
+msgstr "About Us"
+
+#: .\main_kiado\templates\main_kiado\about.html:8
+msgid "A Bagoly Kiadó"
+msgstr "The Owl Publishing House"
+
+#: .\main_kiado\templates\main_kiado\about.html:10
+msgid "Ismerje meg a Bagoly Kiadót és küldetésünket..."
+msgstr "Get to know The Owl Publishing House and our mission..."
+
+#: .\main_kiado\templates\main_kiado\about.html:13
+msgid ""
+"Ismerje meg a Bagoly Kiadót és küldetésünket, amelynek célja, hogy az ázsiai "
+"kultúrát és irodalmat közelebb hozza az európai olvasókhoz. Hiszünk abban, "
+"hogy a különböző kultúrák megismerése elengedhetetlen a gazdagabb társadalom "
+"kialakításához."
+msgstr ""
+"Get to know Bagoly Publishing and our mission to bring Asian culture and "
+"literature closer to European readers. We believe that understanding "
+"different cultures is essential for building a richer society."
+
+#: .\main_kiado\templates\main_kiado\about.html:16
+msgid ""
+"A kultúra terjesztése nemcsak a különbségek bemutatását, hanem a "
+"hasonlóságok felfedezését is jelenti. Ezzel a közelítéssel igyekszünk "
+"hozzájárulni ahhoz, hogy az olvasók gazdagabb tapasztalatokkal "
+"rendelkezzenek."
+msgstr ""
+"Promoting culture means not only showcasing differences but also discovering "
+"similarities. Through this approach, we aim to provide readers with richer "
+"experiences."
+
+#: .\main_kiado\templates\main_kiado\about.html:19
+msgid ""
+"A Bagoly Kiadó csapata rendkívül fontosnak tartja, hogy ezeket a "
+"történeteket és értékeket eljuttassa az olvasókhoz."
+msgstr ""
+"The Bagoly Publishing team considers it extremely important to deliver these "
+"stories and values to readers."
+
+#: .\main_kiado\templates\main_kiado\about.html:21
+#: .\main_kiado\templates\main_kiado\books.html:52
+#: .\main_kiado\templates\main_kiado\contact.html:9
+#: .\main_kiado\templates\main_kiado\employees.html:37
+#: .\main_kiado\templates\main_kiado\reviews.html:63
+msgid "Vissza a kezdőlapra"
+msgstr "Back to the homepage"
+
+#: .\main_kiado\templates\main_kiado\admin_purchase_list.html:5
+msgid "Admin vásárlások listázása"
+msgstr "Admin Purchase List"
+
+#: .\main_kiado\templates\main_kiado\admin_purchase_list.html:9
+msgid "Felhasználó"
+msgstr "User"
+
+#: .\main_kiado\templates\main_kiado\admin_purchase_list.html:10
+msgid "Könyv"
+msgstr "Book"
+
+#: .\main_kiado\templates\main_kiado\admin_purchase_list.html:11
+#: .\main_kiado\templates\main_kiado\cart.html:19
+msgid "Mennyiség"
+msgstr "Quantity"
+
+#: .\main_kiado\templates\main_kiado\base.html:33
+msgid "Bagoly Kiadó"
+msgstr "The Owl Publishing House"
+
+#: .\main_kiado\templates\main_kiado\base.html:39
+msgid "Keresés..."
+msgstr "Search"
+
+#: .\main_kiado\templates\main_kiado\base.html:40
+msgid "Keresés"
+msgstr "Search"
+
+#: .\main_kiado\templates\main_kiado\base.html:69
+msgid "Kijelentkezés"
+msgstr "Logout"
+
+#: .\main_kiado\templates\main_kiado\base.html:80
+msgid "Belépés"
+msgstr "Login"
+
+#: .\main_kiado\templates\main_kiado\base.html:81
+#: .\main_kiado\templates\main_kiado\register.html:4
+#: .\main_kiado\templates\main_kiado\register.html:8
+#: .\main_kiado\templates\main_kiado\register.html:20
+msgid "Regisztráció"
+msgstr "Registration"
+
+#: .\main_kiado\templates\main_kiado\base.html:96
+#: .\main_kiado\templates\main_kiado\books.html:4
+#: .\main_kiado\templates\main_kiado\books.html:7
+#: .\main_kiado\templates\main_kiado\search_results.html:28
+msgid "Könyvek"
+msgstr "Books"
+
+#: .\main_kiado\templates\main_kiado\base.html:98
+#: .\main_kiado\templates\main_kiado\reviews.html:6
+msgid "Vélemények"
+msgstr "Reviews"
+
+#: .\main_kiado\templates\main_kiado\base.html:99
+#: .\main_kiado\templates\main_kiado\employees.html:5
+#: .\main_kiado\templates\main_kiado\search_results.html:52
+msgid "Munkatársak"
+msgstr "Staff Members"
+
+#: .\main_kiado\templates\main_kiado\base.html:100
+msgid "Kapcsolat"
+msgstr "Contact"
+
+#: .\main_kiado\templates\main_kiado\base.html:114
+msgid "Üzenet"
+msgstr "Message"
+
+#: .\main_kiado\templates\main_kiado\book_detail.html:16
+#: .\main_kiado\templates\main_kiado\search_results.html:38
+msgid "Írta:"
+msgstr "Written by:"
+
+#: .\main_kiado\templates\main_kiado\book_detail.html:18
+msgid "Megjelenés dátuma:"
+msgstr "Release date:"
+
+#: .\main_kiado\templates\main_kiado\book_detail.html:27
+msgid "Darabszám:"
+msgstr "Number of copies:"
+
+#: .\main_kiado\templates\main_kiado\book_detail.html:32
+#: .\main_kiado\templates\main_kiado\books.html:36
+msgid "Kosárba helyezés"
+msgstr "Add to cart"
+
+#: .\main_kiado\templates\main_kiado\books.html:15
+#: .\main_kiado\templates\main_kiado\home.html:28
+msgid "borítója"
+msgstr "cover"
+
+#: .\main_kiado\templates\main_kiado\books.html:20
+#: .\main_kiado\templates\main_kiado\cart.html:38
+#: .\main_kiado\templates\main_kiado\employees.html:17
+msgid "Nincs kép"
+msgstr "No image"
+
+#: .\main_kiado\templates\main_kiado\books.html:28
+#: .\main_kiado\templates\main_kiado\home.html:34
+msgid "Szerző:"
+msgstr "Author:"
+
+#: .\main_kiado\templates\main_kiado\books.html:29
+msgid "Kiadás éve:"
+msgstr "Year of publication:"
+
+#: .\main_kiado\templates\main_kiado\books.html:40
+msgid "Jelentkezz be"
+msgstr "Log in"
+
+#: .\main_kiado\templates\main_kiado\books.html:46
+msgid "Jelenleg nincsenek elérhető könyvek."
+msgstr "No books are currently available."
+
+#: .\main_kiado\templates\main_kiado\cart.html:5
+#: .\main_kiado\templates\main_kiado\cart.html:9
+msgid "Kosár"
+msgstr "Cart"
+
+#: .\main_kiado\templates\main_kiado\cart.html:12
+msgid "A kosarad még üres!"
+msgstr "Your cart is still empty!"
+
+#: .\main_kiado\templates\main_kiado\cart.html:17
+msgid "Cím"
+msgstr "Title"
+
+#: .\main_kiado\templates\main_kiado\cart.html:18
+msgid "Szerző"
+msgstr "Author"
+
+#: .\main_kiado\templates\main_kiado\cart.html:20
+msgid "Egységár"
+msgstr "Unit price"
+
+#: .\main_kiado\templates\main_kiado\cart.html:21
+msgid "Összesen"
+msgstr "Total"
+
+#: .\main_kiado\templates\main_kiado\cart.html:22
+msgid "Borítókép"
+msgstr "Cover image"
+
+#: .\main_kiado\templates\main_kiado\cart.html:23
+msgid "Művelet"
+msgstr "Action"
+
+#: .\main_kiado\templates\main_kiado\cart.html:54
+msgid "Végösszeg:"
+msgstr "Total amount:"
+
+#: .\main_kiado\templates\main_kiado\cart.html:59
+msgid "Vásárlás folytatása"
+msgstr "Continue shopping"
+
+#: .\main_kiado\templates\main_kiado\cart.html:60
+#: .\main_kiado\templates\main_kiado\checkout.html:4
+msgid "Vásárlás befejezése"
+msgstr "Complete purchase"
+
+#: .\main_kiado\templates\main_kiado\checkout.html:8
+msgid "Köszönjük a vásárlást!"
+msgstr "Thank you for your purchase!"
+
+#: .\main_kiado\templates\main_kiado\checkout.html:9
+msgid "A rendelésed sikeresen befejeződött."
+msgstr "Your order has been successfully completed."
+
+#: .\main_kiado\templates\main_kiado\checkout.html:10
+msgid "Vissza a könyvekhez"
+msgstr "Back to books"
+
+#: .\main_kiado\templates\main_kiado\contact.html:4
+#: .\main_kiado\templates\main_kiado\contact.html:7
+msgid "Elérhetőségek"
+msgstr "Contact Information"
+
+#: .\main_kiado\templates\main_kiado\contact.html:8
+msgid "Írj nekünk: info@bagolykiado.hu"
+msgstr "Write to us: info@bagolykiado.hu"
+
+#: .\main_kiado\templates\main_kiado\csrf_failure.html:6
+msgid "CSRF Hiba"
+msgstr "CSRF Error"
+
+#: .\main_kiado\templates\main_kiado\csrf_failure.html:9
+msgid "Hiba!"
+msgstr "Error!"
+
+#: .\main_kiado\templates\main_kiado\csrf_failure.html:10
+msgid "Érvénytelen CSRF token. Kérlek frissítsd az oldalt és próbáld újra!"
+msgstr "Invalid CSRF token. Please refresh the page and try again!"
+
+#: .\main_kiado\templates\main_kiado\csrf_failure.html:11
+msgid "Vissza a regisztrációhoz"
+msgstr "Back to registration"
+
+#: .\main_kiado\templates\main_kiado\employees.html:26
+#: .\main_kiado\templates\main_kiado\search_results.html:62
+msgid "Pozíció:"
+msgstr "Position:"
+
+#: .\main_kiado\templates\main_kiado\employees.html:33
+msgid "Nincsenek elérhető munkatársak."
+msgstr "No staff members available."
+
+#: .\main_kiado\templates\main_kiado\home.html:4
+msgid "Kezdőlap"
+msgstr "Home"
+
+#: .\main_kiado\templates\main_kiado\home.html:7
+msgid "Üdvözöljük a Bagoly Kiadó honlapján!"
+msgstr "Welcome to the Bagoly Publishing website!"
+
+#: .\main_kiado\templates\main_kiado\home.html:9
+msgid ""
+"A Bagoly Kiadó elkötelezett a minőségi irodalom és az olvasás iránti "
+"szeretet népszerűsítése mellett. Küldetésünk, hogy a legkülönlegesebb "
+"műveket és szerzőket mutassuk be az olvasóközönségnek, ezzel hozzájárulva az "
+"irodalmi élmények szélesítéséhez. Böngésszen kiadványaink között, és ismerje "
+"meg munkatársainkat, akik mindennap azon dolgoznak, hogy az olvasás öröme "
+"mindenkihez eljusson."
+msgstr ""
+"Bagoly Publishing is committed to promoting quality literature and the love "
+"of reading. Our mission is to present the most exceptional works and authors "
+"to readers, contributing to a broader literary experience. Browse our "
+"publications and meet our staff, who work every day to bring the joy of "
+"reading to everyone."
+
+#: .\main_kiado\templates\main_kiado\home.html:31
+#: .\main_kiado\templates\main_kiado\home.html:71
+msgid "Nincs kép elérhető"
+msgstr "No image available"
+
+#: .\main_kiado\templates\main_kiado\home.html:44
+#: .\main_kiado\templates\main_kiado\home.html:84
+msgid "Előző"
+msgstr "Previous"
+
+#: .\main_kiado\templates\main_kiado\home.html:48
+#: .\main_kiado\templates\main_kiado\home.html:88
+msgid "Következő"
+msgstr "Next"
+
+#: .\main_kiado\templates\main_kiado\login.html:5
+#: .\main_kiado\templates\main_kiado\login.html:9
+msgid "Bejelentkezés"
+msgstr "Login"
+
+#: .\main_kiado\templates\main_kiado\profile.html:5
+msgid "Profil"
+msgstr "Profile"
+
+#: .\main_kiado\templates\main_kiado\profile.html:10
+msgid "Profilja"
+msgstr "Your Profile"
+
+#: .\main_kiado\templates\main_kiado\profile.html:14
+#: .\main_kiado\templates\main_kiado\profile.html:31
+msgid "Alapértelmezett profilkép"
+msgstr "Default profile picture"
+
+#: .\main_kiado\templates\main_kiado\profile.html:16
+msgid "Bio:"
+msgstr "Bio:"
+
+#: .\main_kiado\templates\main_kiado\profile.html:17
+msgid "Születési dátum:"
+msgstr "Date of birth:"
+
+#: .\main_kiado\templates\main_kiado\profile.html:18
+msgid "Szerkesztés"
+msgstr "Edit"
+
+#: .\main_kiado\templates\main_kiado\profile.html:23
+msgid "Profil szerkesztése"
+msgstr "Edit Profile"
+
+#: .\main_kiado\templates\main_kiado\profile.html:58
+msgid "Mentés"
+msgstr "Save"
+
+#: .\main_kiado\templates\main_kiado\profile.html:59
+msgid "Mégse"
+msgstr "Cancel"
+
+#: .\main_kiado\templates\main_kiado\reviews.html:18
+msgid "Értékelj minket!"
+msgstr "Rate us!"
+
+#: .\main_kiado\templates\main_kiado\reviews.html:33
+msgid "Beküldés"
+msgstr "Submit"
+
+#: .\main_kiado\templates\main_kiado\reviews.html:36
+msgid "Korábbi vélemények:"
+msgstr "Previous reviews:"
+
+#: .\main_kiado\templates\main_kiado\reviews.html:44
+msgid "Értékelés:"
+msgstr "Rating:"
+
+#: .\main_kiado\templates\main_kiado\reviews.html:59
+msgid "Még nincs vélemény."
+msgstr "No reviews yet."
+
+#: .\main_kiado\templates\main_kiado\search_results.html:4
+#: .\main_kiado\templates\main_kiado\search_results.html:7
+msgid "Keresési találatok"
+msgstr "Search Results"
+
+#: .\main_kiado\templates\main_kiado\search_results.html:41
+msgid "Részletek"
+msgstr "Details"
+
+#: .\main_kiado\templates\main_kiado\search_results.html:73
+msgid "Nincs találat."
+msgstr "No results found."
+
+#: .\main_kiado\templates\main_kiado\search_results.html:81
+msgid "Hiba történt a keresés során."
+msgstr "An error occurred during the search."
+
+#: .\main_kiado\views.py:54
+msgid "Sikeresen elküldted a véleményed!"
+msgstr "You have successfully submitted your review!"
+
+#: .\main_kiado\views.py:71
+msgid "A könyv mennyisége nőtt."
+msgstr "The book quantity has increased."
+
+#: .\main_kiado\views.py:86
+msgid "A könyv mennyisége csökkent."
+msgstr "The book quantity has decreased."
+
+#: .\main_kiado\views.py:89
+msgid "A könyvet eltávolítottad a kosárból."
+msgstr "You have removed the book from the cart."
+
+#: .\main_kiado\views.py:110
+msgid "A kosarad üres, nem lehet vásárlást végrehajtani."
+msgstr "Your cart is empty; the purchase cannot be completed."
+
+#: .\main_kiado\views.py:121
+msgid "Sikeresen vásároltál! Köszönjük a rendelést."
+msgstr ""
+"You have successfully completed your purchase! Thank you for your order."
+
+#: .\main_kiado\views.py:139
+#, python-format
+msgid "Sikeresen létrejött a fiók: %(username)s!"
+msgstr "The account was successfully created: %(username)s!"
+
+#: .\main_kiado\views.py:152 .\main_kiado\views.py:208
+msgid "Profilod sikeresen frissítve lett."
+msgstr "Your profile has been successfully updated."
+
+#: .\main_kiado\views.py:179
+msgid "Sikeres vásárlás!"
+msgstr "Successful purchase!"
+
+#: .\main_kiado\views.py:278
+msgid "Érvénytelen CSRF token. Frissítsd az oldalt, majd próbáld újra!"
+msgstr "Invalid CSRF token. Refresh the page and try again!"
+
+#~ msgid "Angol"
+#~ msgstr "English"
+
+#~ msgid "Magyar"
+#~ msgstr "Hungarian"
+
+#~ msgid "Születési dátum"
+#~ msgstr "Date of Birth"

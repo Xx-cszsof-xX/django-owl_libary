@@ -1,0 +1,64 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+{% load custom_filters %}
+
+{% block title %}{% trans "Kosár" %}{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="mb-4">{% trans "Kosár" %}</h1>
+
+  {% if not cart_items %}
+    <p class="alert alert-info">{% trans "A kosarad még üres!" %}</p>
+  {% else %}
+    <table class="table table-striped table-bordered">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">{% trans "Cím" %}</th>
+          <th scope="col">{% trans "Szerző" %}</th>
+          <th scope="col">{% trans "Mennyiség" %}</th>
+          <th scope="col">{% trans "Egységár" %}</th>
+          <th scope="col">{% trans "Összesen" %}</th>
+          <th scope="col">{% trans "Borítókép" %}</th>
+          <th scope="col">{% trans "Művelet" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.book.title }}</td>
+            <td>{{ item.book.author }}</td>
+            <td>{{ item.quantity }}</td>
+            <td>{{ item.book.price }} Ft</td>
+            <td>{{ item.quantity|floatformat:0 }} x {{ item.book.price }} Ft</td>
+            <td>
+                {% if item.book.cover_image %}
+                    <img src="{{ item.book.cover_image.url }}" alt="{{ item.book.title }}" style="width: 80px;">
+                {% else %}
+                    <p>{% trans "Nincs kép" %}</p>
+                {% endif %}
+            </td>
+            <td class="text-center">
+                <!-- Mennyiség növelése -->
+                <a href="{% url 'add_to_cart' item.book.id %}" class="btn btn-success btn-sm">+</a>
+                <!-- Mennyiség csökkentése -->
+                <a href="{% url 'remove_from_cart' item.book.id %}" class="btn btn-danger btn-sm">-</a>
+            </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <!-- Végösszeg -->
+    <div class="text-right mt-4">
+      <h4>{% trans "Végösszeg:" %} <strong>{{ total_price|format_currency }}</strong></h4>
+    </div>
+
+    <!-- Gombok -->
+    <div class="d-flex justify-content-between mt-4">
+      <a href="{% url 'books' %}" class="btn btn-secondary">{% trans "Vásárlás folytatása" %}</a>
+      <a href="{% url 'checkout' %}" class="btn btn-success">{% trans "Vásárlás befejezése" %}</a>
+    </div>
+  {% endif %}
+</div>
+{% endblock %}

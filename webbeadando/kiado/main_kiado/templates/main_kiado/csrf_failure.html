@@ -1,0 +1,13 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="{{ LANGUAGE_CODE }}">
+<head>
+    <meta charset="UTF-8">
+    <title>{% trans "CSRF Hiba" %}</title>
+</head>
+<body>
+    <h1>{% trans "Hiba!" %}</h1>
+    <p>{% trans "Érvénytelen CSRF token. Kérlek frissítsd az oldalt és próbáld újra!" %}</p>
+    <a href="{% url 'register' %}">{% trans "Vissza a regisztrációhoz" %}</a>
+</body>
+</html>

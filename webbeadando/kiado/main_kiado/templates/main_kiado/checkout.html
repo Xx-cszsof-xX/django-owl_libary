@@ -1,0 +1,12 @@
+{% extends 'main_kiado/base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "Vásárlás befejezése" %}{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+  <h1 class="mt-4">{% trans "Köszönjük a vásárlást!" %}</h1>
+  <p>{% trans "A rendelésed sikeresen befejeződött." %}</p>
+  <a href="{% url 'books' %}" class="btn btn-primary mt-3">{% trans "Vissza a könyvekhez" %}</a>
+</div>
+{% endblock %}
