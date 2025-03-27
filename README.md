@@ -85,7 +85,7 @@ Továbbá saját middleware és signals is alkalmazásra kerültek, amelyek a m�
 
 
 
----
+
 
 ## 👀 Képernyőképek
 
